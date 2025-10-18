@@ -4,13 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CV Ade Ahmad Rifa'i</title>
-
-  <!-- Google Fonts -->
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -20,115 +16,87 @@
       display: flex;
     }
 
-    /* === SIDEBAR === */
-    nav {
-      width: 220px;
+    /* Sidebar */
+    .sidebar {
+      width: 240px;
       background-color: #212529;
       color: white;
       height: 100vh;
       position: fixed;
-      top: 0;
-      left: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 30px;
+      padding-top: 25px;
     }
 
-    nav img {
-      width: 100px;
-      height: 100px;
+    .sidebar img {
+      width: 90px;
+      height: 90px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid #0d6efd;
-      margin-bottom: 15px;
-    }
-
-    nav h2 {
-      font-size: 18px;
+      border: 2px solid white;
       margin-bottom: 10px;
-      text-align: center;
     }
 
-    nav p {
-      font-size: 13px;
-      color: #aaa;
-      text-align: center;
-      margin-bottom: 25px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 10px 20px;
-      width: 100%;
-      text-align: center;
-      transition: 0.3s;
-      border-left: 3px solid transparent;
-    }
-
-    nav a:hover {
-      background-color: #0d6efd;
-      border-left: 3px solid #fff;
-    }
-
-    /* === MAIN CONTENT === */
-    main {
-      margin-left: 220px;
-      flex: 1;
-      padding: 30px;
-    }
-
-    header {
-      background-color: #0d6efd;
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-      border-radius: 10px;
-    }
-
-    header img {
-      display: none; /* foto sudah di sidebar */
-    }
-
-    header h1 {
-      font-size: 26px;
+    .sidebar h2 {
+      font-size: 18px;
       margin-bottom: 5px;
     }
 
-    header p {
-      color: #e0e0e0;
-      font-size: 15px;
+    .sidebar p {
+      font-size: 13px;
+      color: #bbb;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      width: 100%;
+      padding: 10px 20px;
+      text-align: left;
+      transition: 0.3s;
+      display: block;
+    }
+
+    .sidebar a:hover, .sidebar a.active {
+      background-color: #0d6efd;
+    }
+
+    /* Main Content */
+    .content {
+      margin-left: 240px;
+      padding: 40px 30px;
+      max-width: 900px;
+      flex: 1;
     }
 
     section {
-      background: white;
-      padding: 25px 30px;
-      border-radius: 10px;
-      margin-top: 30px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      display: none;
+      animation: fade 0.4s ease;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    @keyframes fade {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    h1, h2 {
+      color: #212529;
     }
 
     h2 {
-      color: #0d6efd;
+      border-left: 5px solid #0d6efd;
+      padding-left: 10px;
       margin-bottom: 20px;
-      font-size: 20px;
     }
 
-    .about p {
-      line-height: 1.7;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 10px;
-    }
-
-    .info-grid li {
-      list-style: none;
-      margin-bottom: 10px;
-    }
+    ul { padding-left: 20px; }
 
     .skills-container {
       display: flex;
@@ -139,9 +107,10 @@
     .skill-box {
       flex: 1;
       min-width: 250px;
-      background: #f8f9fa;
+      background: white;
       padding: 20px;
       border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     .skill-box h4 {
@@ -153,89 +122,47 @@
       padding-left: 20px;
     }
 
-    .skill-box li {
-      margin-bottom: 8px;
+    footer {
+      text-align: center;
+      color: #666;
+      font-size: 13px;
+      margin-top: 40px;
     }
 
     .portfolio img {
       width: 100%;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      margin-top: 15px;
     }
 
-    footer {
-      text-align: center;
-      margin: 40px 0 20px;
-      color: #777;
-    }
-
-    footer strong {
+    a.link {
       color: #0d6efd;
-    }
-
-    @media (max-width: 800px) {
-      body {
-        flex-direction: column;
-      }
-
-      nav {
-        flex-direction: row;
-        width: 100%;
-        height: auto;
-        padding: 10px;
-        position: relative;
-        justify-content: center;
-      }
-
-      nav a {
-        padding: 10px;
-        border: none;
-      }
-
-      main {
-        margin-left: 0;
-        padding: 20px;
-      }
+      text-decoration: none;
     }
   </style>
 </head>
-
 <body>
-  <!-- SIDEBAR -->
-  <nav>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
     <img src="assets/img/solo.jpg.jpeg" alt="Foto Profil">
-    <h2>Ade Ahmad Rifa'i</h2>
-    <p>Pelajar | Desainer Web</p>
+    <h2>ADE AHMAD RIFA'I</h2>
+    <p>Pelajar | Desainer Web | Fotografer</p>
+    <a href="#" class="nav-link active" data-target="tentang"><i class="bi bi-person"></i> Tentang Saya</a>
+    <a href="#" class="nav-link" data-target="pendidikan"><i class="bi bi-book"></i> Pendidikan</a>
+    <a href="#" class="nav-link" data-target="keahlian"><i class="bi bi-tools"></i> Keahlian</a>
+    <a href="#" class="nav-link" data-target="pengalaman"><i class="bi bi-briefcase"></i> Pengalaman</a>
+    <a href="#" class="nav-link" data-target="portofolio"><i class="bi bi-image"></i> Portofolio</a>
+    <a href="#" class="nav-link" data-target="kontak"><i class="bi bi-envelope"></i> Kontak</a>
+  </div>
 
-    <a href="#about">Tentang</a>
-    <a href="#education">Pendidikan</a>
-    <a href="#skills">Keahlian</a>
-    <a href="#experience">Pengalaman</a>
-    <a href="#portfolio">Portofolio</a>
-    <a href="#contact">Kontak</a>
-  </nav>
-
-  <!-- MAIN CONTENT -->
-  <main>
-    <header>
-      <h1>ADE AHMAD RIFA'I</h1>
-      <p>Pelajar | Desainer Web (UI/UX) | Fotografer</p>
-      <div>
-        <a href="https://www.instagram.com/roxxrfzz?igsh=MWx1ODZzeGswbzl3aA==" style="color:white; font-size:18px;">
-          <i class="bi bi-instagram"></i> Instagram
-        </a>
-      </div>
-    </header>
-
-    <section id="about" class="about">
-      <h2>Tentang Saya</h2>
-      <p>Saya Ade Ahmad Rifa’i, siswa SMKN 1 Kawali yang sedang melaksanakan PKL di PT Guido Techno. 
-      Saya memiliki minat besar di bidang desain web UI/UX dan fotografi. 
-      Saya senang membuat tampilan yang menarik, fungsional, serta mudah digunakan. 
-      Walau belum ahli, saya terus belajar untuk mengasah kemampuan dan menciptakan karya yang lebih baik.</p>
-
-      <ul class="info-grid">
+  <!-- Content -->
+  <div class="content">
+    <!-- Tentang Saya -->
+    <section id="tentang" class="active">
+      <h1>Tentang Saya</h1>
+      <p>Saya Ade Ahmad Rifa’i, siswa SMKN 1 Kawali yang sedang melaksanakan PKL di PT Guido Techno. Saya memiliki minat besar di bidang desain web UI/UX dan fotografi. Saya senang membuat tampilan yang menarik, fungsional, serta mudah digunakan. Walau belum ahli, saya terus belajar untuk mengasah kemampuan dan menciptakan karya yang lebih baik.</p>
+      <ul>
         <li><strong>Tempat, Tanggal Lahir:</strong> Ciamis, 28 Juni 2006</li>
         <li><strong>No. HP:</strong> 0857-2270-1336</li>
         <li><strong>Email:</strong> adeahmadrifai@gmail.com</li>
@@ -244,7 +171,8 @@
       </ul>
     </section>
 
-    <section id="education">
+    <!-- Pendidikan -->
+    <section id="pendidikan">
       <h2>Pendidikan</h2>
       <ul>
         <li><strong>SMKN 1 Kawali</strong> – Rekayasa Perangkat Lunak (2023–2026)</li>
@@ -253,20 +181,19 @@
       </ul>
     </section>
 
-    <section id="skills">
+    <!-- Keahlian -->
+    <section id="keahlian">
       <h2>Keahlian</h2>
-
       <div class="skills-container">
         <div class="skill-box">
           <h4>Hard Skills</h4>
           <ul>
-            <li>Desain UI/UX (Figma, Canva)</li>
-            <li>HTML, CSS, JavaScript dasar</li>
+            <li>Desain UI/UX (Figma, Canva) – <strong>Menengah</strong></li>
+            <li>HTML, CSS, JavaScript Dasar</li>
             <li>Laravel (Pemula)</li>
             <li>Fotografi & Editing</li>
           </ul>
         </div>
-
         <div class="skill-box">
           <h4>Soft Skills</h4>
           <ul>
@@ -280,7 +207,8 @@
       </div>
     </section>
 
-    <section id="experience">
+    <!-- Pengalaman -->
+    <section id="pengalaman">
       <h2>Pengalaman</h2>
       <ul>
         <li><strong>PKL di PT Guido Techno</strong> – Membantu membuat desain antarmuka web dan memperbaiki tampilan halaman (2025)</li>
@@ -290,25 +218,45 @@
       </ul>
     </section>
 
-    <section id="portfolio" class="portfolio">
+    <!-- Portofolio -->
+    <section id="portofolio">
       <h2>Portofolio</h2>
       <p>Beberapa hasil karya saya di bidang sekolah dan desain:</p>
       <img src="assets/img/portfolio/sekolah1.jpg.jpeg" alt="Proyek Sekolah">
     </section>
 
-    <section id="contact">
+    <!-- Kontak -->
+    <section id="kontak">
       <h2>Kontak</h2>
       <p>Jika Anda ingin bekerja sama atau berdiskusi seputar desain, silakan hubungi saya melalui kontak berikut:</p>
       <ul>
         <li><strong>Nomor:</strong> 0857-2270-1336</li>
         <li><strong>Email:</strong> adeahmadrifai@gmail.com</li>
-        <li><strong>Instagram:</strong> <a href="https://www.instagram.com/roxxrfzz" target="_blank">@roxxrfzz</a></li>
+        <li><strong>Instagram:</strong> <a href="https://www.instagram.com/roxxrfzz" target="_blank" class="link">@roxxrfzz</a></li>
       </ul>
     </section>
 
-    <footer>
-      © 2025 <strong>Ade Ahmad Rifa'i</strong> – Semua Hak Dilindungi
-    </footer>
-  </main>
+    <footer>© 2025 <strong>Ade Ahmad Rifa'i</strong> – Semua Hak Dilindungi</footer>
+  </div>
+
+  <!-- Script Navigasi -->
+  <script>
+    const links = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
+
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+
+        links.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+
+        const target = link.getAttribute('data-target');
+        sections.forEach(sec => sec.classList.remove('active'));
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  </script>
+
 </body>
 </html>

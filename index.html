@@ -1,119 +1,103 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CV Ade Ahmad Rifa'i</title>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <!-- Bootstrap Icon -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      background: #f3f5f7;
-      color: #333;
       display: flex;
       min-height: 100vh;
+      background-color: #f5f7fa;
     }
 
-    /* ===== SIDEBAR ===== */
-    aside {
-      background: #212529;
-      color: white;
-      width: 270px;
-      padding: 30px 20px;
+    /* Sidebar */
+    .sidebar {
+      width: 230px;
+      background: #111827;
+      color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
-      position: fixed;
-      height: 100vh;
+      padding-top: 30px;
     }
 
-    aside img {
+    .sidebar img {
       width: 120px;
       height: 120px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid #0d6efd;
       margin-bottom: 15px;
+      border: 3px solid #3b82f6;
     }
 
-    aside h1 {
-      font-size: 20px;
-      text-align: center;
-      margin-bottom: 8px;
+    .sidebar h2 {
+      font-size: 18px;
+      margin-bottom: 20px;
     }
 
-    aside p {
-      font-size: 13px;
-      color: #ccc;
-      text-align: center;
-      margin-bottom: 15px;
-    }
-
-    aside ul {
-      list-style: none;
+    .sidebar nav {
       width: 100%;
-      margin-top: 10px;
     }
 
-    aside ul li {
-      margin: 10px 0;
-      font-size: 14px;
-    }
-
-    aside a {
-      color: #0d6efd;
-      text-decoration: none;
-    }
-
-    aside .social {
-      margin-top: 20px;
-      display: flex;
-      gap: 15px;
-    }
-
-    aside .social i {
-      font-size: 20px;
-      color: #0d6efd;
+    .sidebar nav button {
+      width: 100%;
+      background: none;
+      border: none;
+      color: #fff;
+      text-align: left;
+      padding: 15px 25px;
+      font-size: 15px;
+      cursor: pointer;
       transition: 0.3s;
     }
 
-    aside .social i:hover {
-      color: #74b0ff;
+    .sidebar nav button:hover {
+      background: #2563eb;
     }
 
-    /* ===== MAIN CONTENT ===== */
-    main {
-      margin-left: 270px;
-      padding: 40px 50px;
+    /* Main content */
+    .main {
       flex: 1;
+      padding: 40px;
     }
 
     section {
-      margin-bottom: 40px;
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      color: #111827;
+      font-size: 26px;
+      margin-bottom: 10px;
     }
 
     h2 {
-      border-left: 5px solid #0d6efd;
-      padding-left: 10px;
-      color: #0d6efd;
-      font-size: 22px;
-      margin-bottom: 15px;
+      color: #2563eb;
+      margin-bottom: 10px;
     }
 
-    p, li {
+    p {
       line-height: 1.6;
+      color: #374151;
+      margin-bottom: 15px;
     }
 
     ul {
@@ -121,147 +105,129 @@
       padding-left: 0;
     }
 
-    /* ===== SKILLS ===== */
-    .skills {
+    li {
+      margin-bottom: 8px;
+      color: #374151;
+    }
+
+    .skills-container {
       display: flex;
+      gap: 40px;
       flex-wrap: wrap;
-      gap: 30px;
     }
 
     .skill-box {
       flex: 1;
       min-width: 250px;
-      background: white;
+      background: #fff;
       padding: 20px;
-      border-radius: 10px;
+      border-radius: 12px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    .skill-box h4 {
-      color: #0d6efd;
-      margin-bottom: 10px;
+    .contact-info p {
+      margin: 6px 0;
     }
 
-    .skill-box ul li {
-      margin-bottom: 6px;
-    }
-
-    /* ===== PORTOFOLIO ===== */
-    .portfolio img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      margin-top: 10px;
-    }
-
-    /* ===== FOOTER ===== */
     footer {
       text-align: center;
-      padding: 15px;
-      color: #888;
-      font-size: 14px;
-      border-top: 1px solid #ddd;
       margin-top: 40px;
-    }
-
-    @media (max-width: 768px) {
-      aside {
-        position: relative;
-        width: 100%;
-        height: auto;
-      }
-      main {
-        margin-left: 0;
-        padding: 20px;
-      }
+      color: #6b7280;
+      font-size: 13px;
     }
   </style>
 </head>
 <body>
+  <div class="sidebar">
+    <img src="foto-sekolah.jpg" alt="Foto Profil">
+    <h2>Ade Ahmad Rifa'i</h2>
+    <nav>
+      <button onclick="showSection('tentang')">Tentang Saya</button>
+      <button onclick="showSection('keahlian')">Keahlian</button>
+      <button onclick="showSection('pendidikan')">Pendidikan</button>
+      <button onclick="showSection('pengalaman')">Pengalaman</button>
+      <button onclick="showSection('kontak')">Kontak</button>
+    </nav>
+  </div>
 
-  <!-- SIDEBAR -->
-  <aside>
-    <img src="assets/img/solo.jpg.jpeg" alt="Foto Profil">
-    <h1>ADE AHMAD RIFA'I</h1>
-    <p>Pelajar | Desainer Web (UI/UX) | Fotografer</p>
-
-    <ul>
-      <li><i class="bi bi-geo-alt"></i> Selacai, Ciamis</li>
-      <li><i class="bi bi-envelope"></i> adeahmadrifai@gmail.com</li>
-      <li><i class="bi bi-phone"></i> 0857-2270-1336</li>
-    </ul>
-
-    <div class="social">
-      <a href="https://www.instagram.com/roxxrfzz" target="_blank"><i class="bi bi-instagram"></i></a>
-    </div>
-  </aside>
-
-  <!-- MAIN CONTENT -->
-  <main>
-    <section class="about">
-      <h2>Tentang Saya</h2>
-      <p>Saya Ade Ahmad Rifa’i, siswa SMKN 1 Kawali yang sedang melaksanakan PKL di PT Guido Techno.
-      Saya memiliki minat besar di bidang desain web UI/UX dan fotografi. Saya senang menciptakan tampilan
-      yang menarik, fungsional, dan mudah digunakan. Walau belum ahli, saya terus belajar untuk mengasah
-      kemampuan dan menciptakan karya yang lebih baik.</p>
+  <div class="main">
+    <!-- Tentang Saya -->
+    <section id="tentang" class="active">
+      <h1>Tentang Saya</h1>
+      <p>
+        Saya seorang siswa SMKN 1 Kawali jurusan Rekayasa Perangkat Lunak (RPL) yang sedang melaksanakan kegiatan PKL di PT Guido Techno. 
+        Saya memiliki minat besar dalam dunia desain web, khususnya pada bidang UI/UX Design. 
+        Walau belum ahli, saya menikmati proses belajar, eksplorasi, dan menciptakan desain yang fungsional serta menarik.
+      </p>
     </section>
 
-    <section id="education">
-      <h2>Pendidikan</h2>
-      <ul>
-        <li><strong>SMKN 1 Kawali</strong> – Rekayasa Perangkat Lunak (2023–Sekarang)</li>
-        <li><strong>MTsS Darul Fikri</strong> (2020–2023)</li>
-        <li><strong>MIS Banjaransari</strong> (2014–2020)</li>
-      </ul>
-    </section>
-
-    <section id="skills">
-      <h2>Keahlian</h2>
-      <div class="skills">
+    <!-- Keahlian -->
+    <section id="keahlian">
+      <h1>Keahlian</h1>
+      <div class="skills-container">
         <div class="skill-box">
-          <h4>Hard Skills</h4>
+          <h2>Hard Skills</h2>
           <ul>
-            <li>Desain UI/UX – <strong>Menengah</strong></li>
-            <li>Desain Web – <strong>Menengah</strong></li>
-            <li>Figma & Canva – <strong>Menengah</strong></li>
-            <li>HTML & CSS – <strong>Menengah</strong></li>
-            <li>Fotografi – <strong>Menengah</strong></li>
+            <li>Desain UI/UX (Figma, Canva) – <strong>Menengah</strong></li>
+            <li>HTML, CSS, JavaScript Dasar – <strong>Menengah</strong></li>
+            <li>Laravel – <strong>Pemula</strong></li>
+            <li>Fotografi & Editing – <strong>Menengah</strong></li>
           </ul>
         </div>
 
         <div class="skill-box">
-          <h4>Soft Skills</h4>
+          <h2>Soft Skills</h2>
           <ul>
-            <li>Kreatif dan Inovatif</li>
+            <li>Kreatif & Inovatif</li>
+            <li>Disiplin & Bertanggung Jawab</li>
+            <li>Komunikatif</li>
             <li>Mampu Bekerja dalam Tim</li>
-            <li>Komunikasi yang Baik</li>
-            <li>Disiplin dan Bertanggung Jawab</li>
-            <li>Semangat Belajar Tinggi</li>
+            <li>Antusias untuk Belajar Hal Baru</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section id="experience">
-      <h2>Pengalaman</h2>
+    <!-- Pendidikan -->
+    <section id="pendidikan">
+      <h1>Pendidikan</h1>
       <ul>
-        <li><strong>PKL di PT Guido Techno</strong> – Membantu membuat desain antarmuka web dan memperbaiki tampilan halaman (2025)</li>
-        <li><strong>Praktik Pra-PKL</strong> – Pengenalan dunia kerja dan simulasi pembuatan proyek desain sederhana (2025)</li>
-        <li><strong>UJIKOM RPL</strong> – Pembuatan aplikasi dan desain antarmuka sederhana (2025)</li>
-        <li><strong>Peserta ANBK</strong> – Mengikuti asesmen nasional dan mendapatkan sertifikat (2024)</li>
+        <li><strong>SMKN 1 Kawali</strong> — Jurusan Rekayasa Perangkat Lunak (RPL) <br>
+        (2022 – Sekarang / Kelas 12)</li>
+        <li><strong>SMPN 1 Kawali</strong> — Lulus Tahun 2022</li>
       </ul>
     </section>
 
-    <section class="portfolio">
-      <h2>Portofolio</h2>
-      <p>Beberapa hasil karya saya di bidang sekolah dan desain:</p>
-      <img src="assets/img/portfolio/sekolah1.jpg.jpeg" alt="Proyek Sekolah">
+    <!-- Pengalaman -->
+    <section id="pengalaman">
+      <h1>Pengalaman</h1>
+      <ul>
+        <li><strong>PKL di PT Guido Techno</strong> — Desain UI/UX (2025)</li>
+        <li><strong>Uji Kompetensi Keahlian (UJIKOM)</strong> — RPL (2025)</li>
+        <li><strong>Asesmen Nasional Berbasis Komputer (ANBK)</strong> — Peserta (2024)</li>
+      </ul>
+    </section>
+
+    <!-- Kontak -->
+    <section id="kontak">
+      <h1>Kontak</h1>
+      <div class="contact-info">
+        <p>Email: adeahmadrifai@gmail.com</p>
+        <p>WhatsApp: 08xx-xxxx-xxxx</p>
+        <p>Instagram: @ade_rifai</p>
+      </div>
     </section>
 
     <footer>
-      © 2025 <strong>Ade Ahmad Rifa'i</strong> – Semua Hak Dilindungi
+      &copy; 2025 Ade Ahmad Rifa'i. Semua Hak Dilindungi.
     </footer>
-  </main>
+  </div>
 
+  <script>
+    function showSection(id) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    }
+  </script>
 </body>
 </html>

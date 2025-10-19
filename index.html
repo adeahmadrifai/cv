@@ -346,16 +346,16 @@
       tentang: "Saya seorang siswa Rekayasa Perangkat Lunak (RPL) di SMKN 1 Kawali yang memiliki minat besar di bidang pengembangan web dan desain UI/UX. Saat ini saya sedang melaksanakan magang di PT Guido Techno."
     },
     budi: {
-      nama: "BUDI SETIAWAN",
+      nama: "rifzz",
       deskripsi: "UI/UX Designer | Frontend Developer",
-      foto: "image/budi.jpg",
+      foto: "image/pai3.jpg",
       tentang: "Saya seorang desainer antarmuka dan pengembang frontend dengan pengalaman dalam membangun website interaktif dan responsif menggunakan React dan Figma."
     }
   };
 
   let currentUser = 'ade';
   document.getElementById('switchAccount').addEventListener('click', ()=>{
-    currentUser = (currentUser === 'ade') ? 'budi' : 'ade';
+    currentUser = (currentUser === 'ade') ? 'rifzz' : 'ade';
     const data = cvData[currentUser];
     document.querySelector('.sidebar h2').textContent = data.nama;
     document.querySelector('.sidebar p').textContent = data.deskripsi;

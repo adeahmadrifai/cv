@@ -337,32 +337,7 @@
     }
   });
 
-  // === FITUR GANTI AKUN ===
-  const cvData = {
-    ade: {
-      nama: "ADE AHMAD RIFA'I",
-      deskripsi: "Pelajar | Desainer Web | Fotografer",
-      foto: "image/pai2.jpg",
-      tentang: "Saya seorang siswa Rekayasa Perangkat Lunak (RPL) di SMKN 1 Kawali yang memiliki minat besar di bidang pengembangan web dan desain UI/UX. Saat ini saya sedang melaksanakan magang di PT Guido Techno."
-    },
-    budi: {
-      nama: "rifzz",
-      deskripsi: "UI/UX Designer | Frontend Developer",
-      foto: "image/pai3.jpg",
-      tentang: "Saya seorang desainer antarmuka dan pengembang frontend dengan pengalaman dalam membangun website interaktif dan responsif menggunakan React dan Figma."
-    }
-  };
-
-  let currentUser = 'ade';
-  document.getElementById('switchAccount').addEventListener('click', ()=>{
-    currentUser = (currentUser === 'ade') ? 'rifzz' : 'ade';
-    const data = cvData[currentUser];
-    document.querySelector('.sidebar h2').textContent = data.nama;
-    document.querySelector('.sidebar p').textContent = data.deskripsi;
-    document.getElementById('profilePhoto').src = data.foto;
-    document.getElementById('tentang').querySelector('p').textContent = data.tentang;
-    document.querySelector('footer').innerHTML = `© 2025 <strong>CV - ${data.nama}</strong> – rfzz design`;
-  });
+ 
 </script>
 
 </body>

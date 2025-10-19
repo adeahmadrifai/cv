@@ -109,7 +109,7 @@
   .nav-link.active::before{width:100%;}
 
   .mode-toggle{
-    margin-top:auto;margin-bottom:10px;
+    margin-top:auto;margin-bottom:20px;
     background:linear-gradient(90deg,var(--accent),var(--accent2));
     border:none;color:#fff;
     padding:10px 20px;border-radius:999px;
@@ -186,10 +186,6 @@
 
   <button id="modeToggle" class="mode-toggle">
     <i class="bi bi-moon-stars"></i><span id="modeLabel"> Soft Mode</span>
-  </button>
-
-  <button id="switchAccount" class="mode-toggle" style="background:linear-gradient(90deg,var(--accent2),var(--accent));">
-    <i class="bi bi-people"></i> <span>Ganti Akun</span>
   </button>
 </div>
 
@@ -336,8 +332,6 @@
       modeToggle.innerHTML='<i class="bi bi-moon-stars"></i><span id="modeLabel"> Soft Mode</span>';
     }
   });
-
- 
 </script>
 
 </body>

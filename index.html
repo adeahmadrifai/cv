@@ -70,7 +70,7 @@
   .sidebar img{
     width:115px;height:115px;border-radius:50%;
     border:3px solid var(--accent);
-    margin-bottom:18px;
+    margin-bottom:12px;
     transition:all 0.5s ease;
     box-shadow:0 0 15px var(--accent2);
     animation:photoGlow 4s ease-in-out infinite alternate;
@@ -99,12 +99,9 @@
     overflow:hidden;
   }
   .nav-link::before{
-    content:'';
-    position:absolute;
-    left:0;top:0;height:100%;width:0;
+    content:'';position:absolute;left:0;top:0;height:100%;width:0;
     background:linear-gradient(90deg,var(--accent),var(--accent2));
-    transition:width 0.4s ease;
-    z-index:-1;
+    transition:width 0.4s ease;z-index:-1;
   }
   .nav-link:hover::before{width:100%;}
   .nav-link:hover{color:#fff;transform:translateX(6px);}
@@ -112,7 +109,7 @@
   .nav-link.active::before{width:100%;}
 
   .mode-toggle{
-    margin-top:auto;margin-bottom:25px;
+    margin-top:auto;margin-bottom:10px;
     background:linear-gradient(90deg,var(--accent),var(--accent2));
     border:none;color:#fff;
     padding:10px 20px;border-radius:999px;
@@ -174,7 +171,7 @@
 <body>
 
 <div class="sidebar">
-  <img src="image/pai2.jpg" alt="Foto Pai">
+  <img id="profilePhoto" src="image/pai2.jpg" alt="Foto Profil">
   <h2>ADE AHMAD RIFA'I</h2>
   <p>Pelajar | Desainer Web | Fotografer</p>
 
@@ -188,7 +185,11 @@
   <a href="#" class="nav-link" data-target="kontak"><i class="bi bi-envelope"></i> Kontak</a>
 
   <button id="modeToggle" class="mode-toggle">
-    <i class="bi bi-moon-stars"></i><span id="modeLabel">Soft Mode</span>
+    <i class="bi bi-moon-stars"></i><span id="modeLabel"> Soft Mode</span>
+  </button>
+
+  <button id="switchAccount" class="mode-toggle" style="background:linear-gradient(90deg,var(--accent2),var(--accent));">
+    <i class="bi bi-people"></i> <span>Ganti Akun</span>
   </button>
 </div>
 
@@ -208,7 +209,7 @@
   <section id="pendidikan">
     <h2>Pendidikan</h2>
     <ul>
-      <li><strong>SMKN 1 Kawali</strong> – RPL (2023–2026)</li>
+      <li><strong>SMKN 1 Kawali</strong> – Rekayasa Perangkat Lunak (2023–2026)</li>
       <li><strong>MTsS Darul Fikri</strong> (2020–2023)</li>
       <li><strong>MIS Banjaransari</strong> (2014–2020)</li>
     </ul>
@@ -251,7 +252,7 @@
   <section id="sertifikasi">
     <h2>Sertifikasi</h2>
     <ul>
-      <li><strong>Uji Kompetensi Keahlian (UJIKOM) - RPL</strong></li>
+      <li><strong>Uji Kompetensi Keahlian (UJIKOM) - Rekayasa Perangkat Lunak</strong></li>
       <strong>Diterbitkan:</strong> SMKN 1 Kawali (2025)<br>
       <strong>Keterangan:</strong> Membuat proyek aplikasi berbasis web menggunakan Laravel & MySQL
     </ul>
@@ -288,9 +289,21 @@
   <section id="kontak">
     <h2>Kontak</h2>
     <ul>
-      <li><strong>Nomor:</strong> 0857-2270-1336</li>
-      <li><strong>Email:</strong> adeahmadrifai@gmail.com</li>
-      <li><strong>Instagram:</strong> <a href="https://www.instagram.com/roxxrfzz" target="_blank" style="color:var(--accent);">@roxxrfzz</a></li>
+      <li><strong>Nomor:</strong> 
+        <a href="https://wa.me/6285722701336" target="_blank" style="color:var(--accent);">
+          0857-2270-1336
+        </a>
+      </li>
+      <li><strong>Email:</strong> 
+        <a href="mailto:adeahmadrifai@gmail.com" target="_blank" style="color:var(--accent);">
+          adeahmadrifai@gmail.com
+        </a>
+      </li>
+      <li><strong>Instagram:</strong> 
+        <a href="https://www.instagram.com/roxxrfzz" target="_blank" style="color:var(--accent);">
+          @roxxrfzz
+        </a>
+      </li>
     </ul>
   </section>
 
@@ -298,6 +311,7 @@
 </div>
 
 <script>
+  // Navigasi antar section
   const links=document.querySelectorAll('.nav-link');
   const sections=document.querySelectorAll('section');
   links.forEach(link=>{
@@ -312,15 +326,44 @@
     });
   });
 
+  // Mode gelap / terang
   const modeToggle=document.getElementById('modeToggle');
   modeToggle.addEventListener('click',()=>{
     document.body.classList.toggle('light');
     if(document.body.classList.contains('light')){
-      modeToggle.innerHTML='<i class="bi bi-sun-fill"></i><span id="modeLabel">Dark Mode</span>';
+      modeToggle.innerHTML='<i class="bi bi-sun-fill"></i><span id="modeLabel"> Dark Mode</span>';
     }else{
-      modeToggle.innerHTML='<i class="bi bi-moon-stars"></i><span id="modeLabel">Soft Mode</span>';
+      modeToggle.innerHTML='<i class="bi bi-moon-stars"></i><span id="modeLabel"> Soft Mode</span>';
     }
   });
+
+  // === FITUR GANTI AKUN ===
+  const cvData = {
+    ade: {
+      nama: "ADE AHMAD RIFA'I",
+      deskripsi: "Pelajar | Desainer Web | Fotografer",
+      foto: "image/pai2.jpg",
+      tentang: "Saya seorang siswa Rekayasa Perangkat Lunak (RPL) di SMKN 1 Kawali yang memiliki minat besar di bidang pengembangan web dan desain UI/UX. Saat ini saya sedang melaksanakan magang di PT Guido Techno."
+    },
+    budi: {
+      nama: "BUDI SETIAWAN",
+      deskripsi: "UI/UX Designer | Frontend Developer",
+      foto: "image/budi.jpg",
+      tentang: "Saya seorang desainer antarmuka dan pengembang frontend dengan pengalaman dalam membangun website interaktif dan responsif menggunakan React dan Figma."
+    }
+  };
+
+  let currentUser = 'ade';
+  document.getElementById('switchAccount').addEventListener('click', ()=>{
+    currentUser = (currentUser === 'ade') ? 'budi' : 'ade';
+    const data = cvData[currentUser];
+    document.querySelector('.sidebar h2').textContent = data.nama;
+    document.querySelector('.sidebar p').textContent = data.deskripsi;
+    document.getElementById('profilePhoto').src = data.foto;
+    document.getElementById('tentang').querySelector('p').textContent = data.tentang;
+    document.querySelector('footer').innerHTML = `© 2025 <strong>CV - ${data.nama}</strong> – rfzz design`;
+  });
 </script>
+
 </body>
 </html>
